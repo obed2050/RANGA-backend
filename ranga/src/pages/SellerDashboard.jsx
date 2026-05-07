@@ -163,10 +163,10 @@ export default function SellerDashboard() {
 
       {/* No shop yet */}
       {!shop && (
-        <div className="bg-orange-50 border border-orange-200 rounded-xl p-5 mb-6 flex items-center justify-between">
+        <div className="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-xl p-5 mb-6 flex items-center justify-between">
           <div>
-            <p className="font-semibold text-orange-800">You don't have a shop yet!</p>
-            <p className="text-orange-600 text-xs mt-1">Create your shop to start adding products.</p>
+            <p className="font-semibold text-orange-800 dark:text-orange-300">You don't have a shop yet!</p>
+            <p className="text-orange-600 dark:text-orange-400 text-xs mt-1">Create your shop to start adding products.</p>
           </div>
           <button onClick={() => setShowShopForm(true)} className="bg-orange-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-orange-600 transition font-medium">
             Create Shop
@@ -177,8 +177,8 @@ export default function SellerDashboard() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Seller Dashboard</h1>
-          <p className="text-gray-500 text-sm mt-1">Welcome back, {user?.name}</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Seller Dashboard</h1>
+          <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Welcome back, {user?.name}</p>
           {shop && <p className="text-yellow-600 text-sm font-medium mt-0.5">🏪 {shop.name}</p>}
         </div>
         <div className="flex gap-3">
@@ -195,8 +195,8 @@ export default function SellerDashboard() {
 
       {/* Shop Form */}
       {showShopForm && (
-        <div className="bg-white rounded-2xl shadow-sm p-6 mb-6 border border-yellow-100">
-          <h2 className="text-lg font-bold text-gray-800 mb-4">🏪 {shop ? "Edit Shop" : "Create Shop"}</h2>
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6 mb-6 border border-yellow-100 dark:border-yellow-900/30">
+          <h2 className="text-lg font-bold text-gray-800 dark:text-white mb-4">🏪 {shop ? "Edit Shop" : "Create Shop"}</h2>
           <form onSubmit={saveShop} className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Shop Name *</label>
@@ -245,8 +245,8 @@ export default function SellerDashboard() {
 
       {/* Add/Edit Product Form */}
       {showForm && shop && (
-        <div className="bg-white rounded-2xl shadow-sm p-6 mb-6 border border-gray-100">
-          <h2 className="text-lg font-bold text-gray-800 mb-5">{editId ? "Edit Product" : "Add New Product"}</h2>
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6 mb-6 border border-gray-100 dark:border-gray-700">
+          <h2 className="text-lg font-bold text-gray-800 dark:text-white mb-5">{editId ? "Edit Product" : "Add New Product"}</h2>
           <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Product Name *</label>
@@ -283,9 +283,9 @@ export default function SellerDashboard() {
       )}
 
       {/* Products Table */}
-      <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-        <div className="p-5 border-b border-gray-100">
-          <h2 className="font-bold text-gray-800">My Products ({products.length})</h2>
+      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden">
+        <div className="p-5 border-b border-gray-100 dark:border-gray-700">
+          <h2 className="font-bold text-gray-800 dark:text-white">My Products ({products.length})</h2>
         </div>
         {products.length === 0 ? (
           <div className="text-center py-16 text-gray-500">
@@ -295,7 +295,7 @@ export default function SellerDashboard() {
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
-              <thead className="bg-gray-50 text-gray-600 text-xs uppercase">
+              <thead className="bg-gray-50 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs uppercase">
                 <tr>
                   <th className="px-5 py-3 text-left">Product</th>
                   <th className="px-5 py-3 text-left">Category</th>
@@ -311,12 +311,12 @@ export default function SellerDashboard() {
                   const name = p.name || p.title;
                   const img = Array.isArray(p.images) ? p.images[0] : p.images || p.image;
                   return (
-                    <tr key={pid} className="hover:bg-gray-50 transition">
+                    <tr key={pid} className="hover:bg-gray-50 dark:hover:bg-gray-700 transition">
                       <td className="px-5 py-4">
                         <div className="flex items-center gap-3">
                           <img src={img || `https://picsum.photos/seed/${pid}/80/80`} alt={name} className="w-12 h-12 object-cover rounded-lg" onError={(e) => { e.target.src = `https://picsum.photos/seed/${pid}/80/80`; }} />
                           <div>
-                            <p className="font-medium text-gray-800 line-clamp-1">{name}</p>
+                            <p className="font-medium text-gray-800 dark:text-white line-clamp-1">{name}</p>
                             <p className="text-xs text-gray-400 line-clamp-1">{p.description}</p>
                           </div>
                         </div>

@@ -82,7 +82,7 @@ export default function Footer() {
     <>
       {showContact && <ContactModal onClose={() => setShowContact(false)} />}
 
-      <footer className="bg-gray-900 text-gray-300 mt-16">
+      <footer className="bg-gray-900 dark:bg-gray-950 text-gray-300 mt-16">
         <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-3">

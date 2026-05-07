@@ -43,8 +43,8 @@ export default function Orders() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold text-gray-900 mb-2">My Orders</h1>
-      <p className="text-gray-500 text-sm mb-8">{orders.length} order{orders.length !== 1 ? "s" : ""} found</p>
+      <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">My Orders</h1>
+      <p className="text-gray-500 dark:text-gray-400 text-sm mb-8">{orders.length} order{orders.length !== 1 ? "s" : ""} found</p>
 
       {orders.length === 0 ? (
         <div className="text-center py-20">
@@ -58,13 +58,13 @@ export default function Orders() {
             const Icon = config.icon;
             const statusLabel = config.label || order.status;
             return (
-              <div key={order._id} className="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100">
+              <div key={order._id} className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
                 {/* Order Header */}
-                <div className="flex items-center justify-between px-6 py-4 border-b border-gray-50">
+                <div className="flex items-center justify-between px-6 py-4 border-b border-gray-50 dark:border-gray-700">
                   <div className="flex items-center gap-3">
                     <FiPackage className="text-gray-400" />
                     <div>
-                      <p className="text-sm font-semibold text-gray-800">Order #{order._id.slice(-6).toUpperCase()}</p>
+                      <p className="text-sm font-semibold text-gray-800 dark:text-white">Order #{order._id.slice(-6).toUpperCase()}</p>
                       <p className="text-xs text-gray-400">{new Date(order.createdAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
                     </div>
                   </div>
@@ -89,10 +89,10 @@ export default function Orders() {
                         onError={(e) => { e.target.src = `https://picsum.photos/seed/${idx}/80/80`; }}
                       />
                       <div className="flex-1">
-                        <p className="text-sm font-medium text-gray-800">{item.title}</p>
-                        <p className="text-xs text-gray-500">Qty: {item.quantity} × ${Number(item.price).toFixed(2)}</p>
+                        <p className="text-sm font-medium text-gray-800 dark:text-white">{item.title}</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">Qty: {item.quantity} × ${Number(item.price).toFixed(2)}</p>
                       </div>
-                      <p className="text-sm font-semibold text-gray-700">${(item.price * item.quantity).toFixed(2)}</p>
+                      <p className="text-sm font-semibold text-gray-700 dark:text-gray-200">${(item.price * item.quantity).toFixed(2)}</p>
                     </div>
                   ))}
                 </div>

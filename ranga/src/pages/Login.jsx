@@ -46,8 +46,8 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-yellow-50 flex items-center justify-center px-4">
-      <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-yellow-50 dark:from-gray-950 dark:to-gray-900 flex items-center justify-center px-4">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl w-full max-w-md p-8">
         <div className="text-center mb-8">
           <Link to="/" className="flex flex-col items-center gap-2">
             <img src={logo} alt="Ranga System" className="h-16 w-16 object-contain" />

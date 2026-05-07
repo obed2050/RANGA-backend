@@ -64,7 +64,7 @@ export default function Home() {
   });
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-gray-50 dark:bg-gray-950 min-h-screen">
 
       {/* ── Hero Banner ── */}
       {!search && !category && (
@@ -102,7 +102,7 @@ export default function Home() {
 
       {/* ── Trust Badges ── */}
       {!search && !category && (
-        <section className="bg-white border-b border-gray-200">
+        <section className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
           <div className="max-w-7xl mx-auto px-4 py-3 grid grid-cols-3 gap-4 text-center">
             {[
               { icon: FiTruck,     label: "Free Shipping",  sub: "Orders over $50" },
@@ -112,10 +112,10 @@ export default function Home() {
               <div key={label} className="flex items-center justify-center gap-2">
                 <Icon size={18} className="text-yellow-500 flex-shrink-0" />
                 <div className="text-left hidden sm:block">
-                  <p className="text-xs font-bold text-gray-800">{label}</p>
+                  <p className="text-xs font-bold text-gray-800 dark:text-gray-200">{label}</p>
                   <p className="text-xs text-gray-400">{sub}</p>
                 </div>
-                <p className="text-xs font-semibold text-gray-700 sm:hidden">{label}</p>
+                <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 sm:hidden">{label}</p>
               </div>
             ))}
           </div>
@@ -127,7 +127,7 @@ export default function Home() {
         {/* ── Categories ── */}
         {!search && !category && (
           <section className="mb-10">
-            <h2 className="text-xl font-extrabold text-gray-900 mb-4">Shop by Category</h2>
+            <h2 className="text-xl font-extrabold text-gray-900 dark:text-white mb-4">Shop by Category</h2>
             <div className="grid grid-cols-4 sm:grid-cols-8 gap-2">
               {CATEGORIES.map((cat) => (
                 <Link
@@ -147,7 +147,7 @@ export default function Home() {
         <section>
           <div className="flex items-center justify-between mb-5">
             <div>
-              <h2 className="text-xl font-extrabold text-gray-900">
+              <h2 className="text-xl font-extrabold text-gray-900 dark:text-white">
                 {category
                   ? `${category}`
                   : search
@@ -155,7 +155,7 @@ export default function Home() {
                   : "Featured Products"}
               </h2>
               {!loading && (
-                <p className="text-xs text-gray-400 mt-0.5">
+                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
                   {filtered.length} product{filtered.length !== 1 ? "s" : ""} found
                 </p>
               )}
@@ -180,7 +180,7 @@ export default function Home() {
           {!loading && filtered.length === 0 && (
             <div className="text-center py-24 text-gray-400">
               <p className="text-5xl mb-4">🔍</p>
-              <p className="text-lg font-semibold text-gray-600">No products found</p>
+              <p className="text-lg font-semibold text-gray-600 dark:text-gray-300">No products found</p>
               <p className="text-sm mt-1">Try a different search or category</p>
               <Link to="/" className="mt-4 inline-block bg-yellow-500 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-yellow-600 transition">
                 Browse All Products

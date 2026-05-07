@@ -71,7 +71,7 @@ export default function ProductCard({ product }) {
     <>
       {showPrompt && <LoginPrompt onClose={() => setShowPrompt(false)} />}
 
-      <div className="bg-white rounded-xl border border-gray-200 overflow-hidden flex flex-col shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
 
         {/* Image */}
         <Link to={`/product/${pid}`} className="block overflow-hidden bg-gray-50" style={{ height: "200px" }}>
@@ -88,7 +88,7 @@ export default function ProductCard({ product }) {
         <div className="p-3 flex flex-col flex-1 gap-1.5">
 
           <Link to={`/product/${pid}`}>
-            <h3 className="text-sm font-semibold text-gray-800 hover:text-yellow-600 transition leading-snug"
+            <h3 className="text-sm font-semibold text-gray-800 dark:text-white hover:text-yellow-600 transition leading-snug"
               style={{ display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
               {title}
             </h3>
@@ -96,7 +96,7 @@ export default function ProductCard({ product }) {
 
           {/* Description ntoya */}
           {product.description && (
-            <p className="text-xs text-gray-400 leading-snug"
+            <p className="text-xs text-gray-400 dark:text-gray-500 leading-snug"
               style={{ display: "-webkit-box", WebkitLineClamp: 1, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
               {product.description}
             </p>
@@ -112,7 +112,7 @@ export default function ProductCard({ product }) {
 
           {/* Amafaranga */}
           <div className="flex items-baseline gap-1.5 mt-0.5">
-            <span className="text-base font-extrabold text-gray-900">${Number(product.price).toFixed(2)}</span>
+            <span className="text-base font-extrabold text-gray-900 dark:text-white">${Number(product.price).toFixed(2)}</span>
             {product.originalPrice && (
               <span className="text-xs text-gray-400 line-through">${Number(product.originalPrice).toFixed(2)}</span>
             )}

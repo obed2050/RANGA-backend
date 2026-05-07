@@ -4,7 +4,7 @@
   "description": "BuySellOrRent API Backend",
   "main": "server.js",
   "scripts": {
-    "dev": "node server.js",
+    "start": "node server.js",
     "db-sync": "node src/db-sync.js",
     "migrate": "node src/migrate.js",
     "seed": "node src/seed.js"

@@ -14,6 +14,7 @@ require('./src/models/Listing');
 require('./src/models/Order');
 require('./src/models/OrderItem');
 require('./src/models/Notification');
+require('./src/models/Subscription');
 
 const app = express();
 app.use(cors({ origin: '*', credentials: true }));
@@ -27,6 +28,7 @@ app.use('/api/shops', require('./src/routes/shops'));
 app.use('/api/products', require('./src/routes/products'));
 app.use('/api/orders', require('./src/routes/orders'));
 app.use('/api/notifications', require('./src/routes/notifications'));
+app.use('/api/subscriptions', require('./src/routes/subscriptions'));
 app.use('/api/admin', require('./src/routes/admin'));
 
 app.get('/', (req, res) => res.json({ message: 'BuySellOrRent API running', docs: '/api-docs' }));

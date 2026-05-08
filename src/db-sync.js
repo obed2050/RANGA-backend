@@ -8,6 +8,7 @@ require('./models/Listing');
 require('./models/Order');
 require('./models/OrderItem');
 require('./models/Notification');
+require('./models/Subscription');
 
 sequelize.sync({ alter: false, force: false })
   .then(() => { console.log('✅ Database synced (new tables created, existing tables unchanged)'); process.exit(0); })

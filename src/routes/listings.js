@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAll, getOne, create, update, remove } = require('../controllers/listingController');
+const { getAll, getOne, create, update, remove, getMyListings } = require('../controllers/listingController');
 const { auth } = require('../middleware/auth');
 
 /**
@@ -8,6 +8,8 @@ const { auth } = require('../middleware/auth');
  *   name: Listings
  *   description: Buy, Sell and Rent listings
  */
+
+router.get('/my', auth, getMyListings);
 
 /**
  * @swagger

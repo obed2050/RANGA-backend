@@ -4,16 +4,17 @@ const User = require('../models/User');
 const Category = require('../models/Category');
 
 exports.getMyListings = async (req, res) => {
-  req.query.sellerId = req.user.id;
+  req.query.userId = req.user.id;
   return exports.getAll(req, res);
 };
 
 exports.getAll = async (req, res) => {
   try {
-    const { type, categoryId, location, minPrice, maxPrice, status, page = 1, limit = 10 } = req.query;
+    const { type, categoryId, location, minPrice, maxPrice, status, userId, page = 1, limit = 10 } = req.query;
     const where = {};
     if (type) where.type = type;
     if (categoryId) where.categoryId = categoryId;
+    if (userId) where.userId = userId;
     if (location) where.location = { [Op.like]: `%${location}%` };
     if (status) where.status = status;
     else where.status = 'active';
@@ -57,10 +58,11 @@ exports.getOne = async (req, res) => {
 
 exports.create = async (req, res) => {
   try {
-    const { title, description, price, type, location, categoryId, images } = req.body;
+    const { title, description, price, currency, type, location, categoryId, subcategory, whatsapp, phone, mediaType, mediaUrl, images } = req.body;
     const listing = await Listing.create({
-      title, description, price, type, location, categoryId, subcategory, whatsapp, phone, mediaType, mediaUrl,
-      sellerId: req.user.id,
+      title, description, price, currency, type: type || 'sell', location, categoryId,
+      subcategory, whatsapp, phone, mediaType, mediaUrl, images,
+      userId: req.user.id,
     });
     res.status(201).json(listing);
   } catch (err) {

@@ -11,9 +11,11 @@ const normalizeUser = (u) => ({
   email: u.email,
   phone: u.phoneNumber,
   phoneNumber: u.phoneNumber,
+  whatsappNumber: u.whatsappNumber,
   role: u.role,
   avatar: u.avatar,
   location: u.location,
+  gender: u.gender,
   createdAt: u.createdAt,
 });
 

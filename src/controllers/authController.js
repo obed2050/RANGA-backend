@@ -13,14 +13,16 @@ const normalizeUser = (user) => ({
   email: user.email,
   phone: user.phoneNumber,
   phoneNumber: user.phoneNumber,
+  whatsappNumber: user.whatsappNumber,
   role: user.role,
   avatar: user.avatar,
   location: user.location,
+  gender: user.gender,
 });
 
 exports.register = async (req, res) => {
   try {
-    const { name, fullName, email, password, phone, phoneNumber, role } = req.body;
+    const { name, fullName, email, password, phone, phoneNumber, whatsappNumber, location, gender, role } = req.body;
     const exists = await User.findOne({ where: { email } });
     if (exists) return res.status(400).json({ message: 'Email already registered' });
 
@@ -30,6 +32,9 @@ exports.register = async (req, res) => {
       email,
       password: hashed,
       phoneNumber: phoneNumber || phone,
+      whatsappNumber: whatsappNumber || phoneNumber || phone,
+      location,
+      gender,
       role,
     });
     const token = generateToken(user);
